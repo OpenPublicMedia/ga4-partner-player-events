@@ -44,7 +44,7 @@ For example:
 - Save Trigger
 
 ### Tags
-#### 1. GA4 - PBS Partner Player Message Processor
+#### ~~1. GA4 - PBS Partner Player Message Processor~~ (Currently being added directly to the website head area)
   - Create a new variable:
     - `Tags > (click) New`
   - Tag Name: **GA4 - PBS Partner Player Message Processor**
@@ -52,7 +52,6 @@ For example:
     - ```<script>(Insert contents of partnerPlayerGA4Events.js)</script>```
   - Triggering: **All Pages** (with respect to your Consent Mode setup)
   - Save Tag
-
 #### 2. GA4 Partner Player Event Submitter
   - Create a new variable:
     - `Tags > (click) New`
