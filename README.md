@@ -1,12 +1,12 @@
 # PBS Partner Player GA4 Events with Google Tag Manager
 
+## Google Tag Manager (GTM) Setup
 ## Setup GA4 PBS Partner Player Events in GTM
+- Create a workspace to hold all the changes
 - Added 7 Variables that are set/read in the dataLayer
 - Added iframe message processor (as script on website head, rather than GTM Tag)
 - Added event submitter to GA4 analytics
 - Assigned all items in PBS Partner Player folder
-
-## Google Tag Manager (GTM) Setup
 
 ### Workspace
 Create a new workspace to encapsulate the work to be done. Can be named: **GA4 PBS Partner Player Events**
@@ -78,8 +78,9 @@ Your user-defined variables should pop up as you start typing ```"{{PBS Partne"`
 - Publish the workspace
 - Go back to 'Default Workspace' and click 'update' to bring the changes from your recently published workspace version.
 
+## Google Analytics Setup
 ### GA4 Custom Dimensions
-Once you start to collect event data in GA4, you can then setup 2 custom dimensions which can be used in Exploration reports. Data will only
+Once you start to receive event data in GA4, you can then setup 2 custom dimensions which can be used in Exploration reports. Custom Dimension filters data will only be available starting the day the dimensions were created.
 
 #### Custom Dimension: Video Provider
 - Go to Admin (gear icon lower left)
