@@ -1,7 +1,7 @@
 # PBS Partner Player GA4 Events with Google Tag Manager
 
 ## Google Tag Manager (GTM) Setup
-## Setup GA4 PBS Partner Player Events in GTM
+### Setup GA4 PBS Partner Player Events in GTM
 - Create a workspace to hold all the changes
 - Added 7 Variables that are set/read in the dataLayer
 - Added iframe message processor (as script on website head, rather than GTM Tag)
@@ -54,6 +54,7 @@ Since we need to capture the an iframe message that occurs before the DOM loads,
   - Triggering: **All Pages** (with respect to your Consent Mode setup)
   - Save Tag
 </s>
+
 #### 2. GA4 Partner Player Event Submitter
   - Create a new variable:
     - `Tags > (click) New`
