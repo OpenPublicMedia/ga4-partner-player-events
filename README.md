@@ -2,10 +2,9 @@
 
 ## Setup GA4 PBS Partner Player Events in GTM
 - Added 7 Variables that are set/read in the dataLayer
-- Added iframe message processor
+- Added iframe message processor (as script on website head, rather than GTM Tag)
 - Added event submitter to GA4 analytics
 - Assigned all items in PBS Partner Player folder
-
 
 ## Google Tag Manager (GTM) Setup
 
@@ -24,9 +23,9 @@ Do the following for each of the following variables:
 * PBS Partner Player Title, pbs_video_title
 * PBS Partner Player URL, pbs_video_url
 
-For example:
-* Example: PBS Partner Player Action, pbs_video_action
-- Create a new variable:
+For example setup for each variable:
+* Example: **PBS Partner Player Action, pbs_video_action**
+- Create a new user defined variable:
 - - `Variables > User-Defined Variables > (click) New`
 - Variable Name: **PBS Partner Player Action**
 - Variable Configuration: **Data Layer Variable**
@@ -44,7 +43,9 @@ For example:
 - Save Trigger
 
 ### Tags
-#### ~~1. GA4 - PBS Partner Player Message Processor~~ (Currently being added directly to the website head area)
+#### ~~1. GA4 - PBS Partner Player Message Processor~~ (ga4PartnerPlayerEvents.js is currently being added directly to website head)
+Since we need to capture the an iframe message that occurs before the DOM loads, prior to interactive state, a minified version of the ga4PartnerPlayerEvents.js script is currently being added to the website header in lieu of this GTM tag.
+<s>
   - Create a new variable:
     - `Tags > (click) New`
   - Tag Name: **GA4 - PBS Partner Player Message Processor**
@@ -52,6 +53,7 @@ For example:
     - ```<script>(Insert contents of partnerPlayerGA4Events.js)</script>```
   - Triggering: **All Pages** (with respect to your Consent Mode setup)
   - Save Tag
+</s>
 #### 2. GA4 Partner Player Event Submitter
   - Create a new variable:
     - `Tags > (click) New`
@@ -73,3 +75,31 @@ Your user-defined variables should pop up as you start typing ```"{{PBS Partne"`
 
 - Trigger: **Event - partnerPlayerEvent**
 - Save Tag
+- Publish the workspace
+- Go back to 'Default Workspace' and click 'update' to bring the changes from your recently published workspace version.
+
+### GA4 Custom Dimensions
+Once you start to collect event data in GA4, you can then setup 2 custom dimensions which can be used in Exploration reports. Data will only
+
+#### Custom Dimension: Video Provider
+- Go to Admin (gear icon lower left)
+- Under the **Property** area go to **Custom definitions**
+- Click on **Create custom dimension**
+  - Dimension name: **Video Provider**
+  - Scope: **Event**
+  - Description: **Name of video player provider**
+  - Event Parameter: **video_provider**
+    - This will only appear once you get this video_provider parameter to show up in the list with data from a few event entries. This video_provider option may be quick or may take up 1 or 2 days to appear
+- Click Save
+
+#### Custom Dimension: Video Title
+Create another custom dimension for Video Title
+- Go to Admin (gear icon lower left)
+- Under the **Property** area go to **Custom definitions**
+- Click on **Create custom dimension**
+  - Dimension name: **Video Title**
+  - Scope: **Event**
+  - Description: **Title of video during event**
+  - Event Parameter: **video_title**
+    - This will only appear once you get this video_provider parameter to show up in the list with data from a few event entries. This video_provider option may be quick or may take up 1 or 2 days to appear
+- Click Save
